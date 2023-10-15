@@ -26,14 +26,17 @@ function onSearch(e) {
     getPicturesApi.getPictures().then(data => {const markupPictures =
         data.map(item => createGallery(item));
         gallery.insertAdjacentHTML('beforeend', markupPictures.join(''));
-    }).catch(onError).finally(() => new SimpleLightbox('.gallery a'));
+    }).catch(onError).finally(creationGalleryPictures);
+};
+function creationGalleryPictures() {
+    new SimpleLightbox('.gallery a');
 };
 
 function onShow() {
     getPicturesApi.getPictures().then(data => { const markupPictures =
         data.map(item => createGallery(item));
         gallery.insertAdjacentHTML('beforeend', markupPictures.join(''));
-    }).catch(onError);
+    }).catch(onError).finally(creationGalleryPictures);
 };
 
 function clearMarkup() {
