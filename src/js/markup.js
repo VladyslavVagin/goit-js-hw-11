@@ -1,5 +1,5 @@
 export function createGallery(item) {
-  return `<div class="photo-card">
+  return `<div class="photo-card post">
   <a href="${item.largeImageURL}"><img src="${item.webformatURL}" alt="${item.tags}" loading="lazy" /></a>
    <div class="info">
      <p class="info-item">${item.likes}
