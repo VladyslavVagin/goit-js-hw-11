@@ -1,4 +1,5 @@
 import axios from "axios";
+import { Notify } from "notiflix";
 
 export default class GetPicturesFromApi {
   constructor() {
@@ -21,6 +22,10 @@ export default class GetPicturesFromApi {
       }
     }).then(response => {
       this.page += 1;
+      if( response.data.totalHits === 0) {
+        throw new Error();
+      }
+      Notify.info(`Hooray! We found ${response.data.totalHits} images.`);
       return response.data.hits;
     });
   }
