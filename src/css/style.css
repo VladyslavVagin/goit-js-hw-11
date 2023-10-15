@@ -1,0 +1,29 @@
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+.photo-card {
+    width: calc((100% - 45px) / 4);
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.info-item {
+    display: flex;
+    gap: 10px;
+    flex-direction: column-reverse;
+    align-items: center;
+    font-size: 12px;
+}
+.info {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
