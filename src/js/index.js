@@ -28,6 +28,7 @@ function onSearch(e) {
         gallery.insertAdjacentHTML('beforeend', markupPictures.join(''));
     }).catch(onError).finally(creationGalleryPictures);
 };
+
 function creationGalleryPictures() {
     new SimpleLightbox('.gallery a');
 };
@@ -37,6 +38,7 @@ function onShow() {
         data.map(item => createGallery(item));
         gallery.insertAdjacentHTML('beforeend', markupPictures.join(''));
     }).catch(onError).finally(creationGalleryPictures);
+    creationGalleryPictures().refresh();
 };
 
 function clearMarkup() {
