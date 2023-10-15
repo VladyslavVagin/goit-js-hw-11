@@ -23,7 +23,9 @@ function onSearch(e) {
     }
     clearMarkup();
     getPicturesApi.resetPage();
-    getPicturesApi.getPictures().then(data => {const markupPictures =
+    getPicturesApi.getPictures().then(r => {
+        Notify.info(`Hooray! We found ${r.totalHits} images.`);
+        return r.hits;}).then(data => {const markupPictures =
         data.map(item => createGallery(item));
         gallery.insertAdjacentHTML('beforeend', markupPictures.join(''));
     }).catch(onError).finally(creationGalleryPictures);
@@ -34,11 +36,10 @@ function creationGalleryPictures() {
 };
 
 function onShow() {
-    getPicturesApi.getPictures().then(data => { const markupPictures =
+    getPicturesApi.getPictures().then(r => r.hits).then(data => { const markupPictures =
         data.map(item => createGallery(item));
         gallery.insertAdjacentHTML('beforeend', markupPictures.join(''));
     }).catch(onError).finally(creationGalleryPictures);
-    creationGalleryPictures().refresh();
 };
 
 function clearMarkup() {
