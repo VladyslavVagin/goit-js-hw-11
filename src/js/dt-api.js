@@ -21,7 +21,7 @@ export default class GetPicturesFromApi {
       }
     }).then(response => {
       this.page += 1;
-      if( response.data.totalHits === 0) {
+      if( response.data.totalHits === 0 || response.data.hits.length === 0) {
         throw new Error();
       }
       return response.data;
