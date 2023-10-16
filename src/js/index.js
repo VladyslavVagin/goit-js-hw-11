@@ -28,9 +28,9 @@ function onSearch(e) {
         Notify.info(`Hooray! We found ${r.totalHits} images.`);
         return r.hits;}).then(data => {const markupPictures =
         data.map(item => createGallery(item));
+        showMore.classList.remove('is-hidden');
         gallery.insertAdjacentHTML('beforeend', markupPictures.join(''));
     }).catch(onError).finally(creationGalleryPictures);
-    showMore.classList.remove('is-hidden');
 };
 
 function creationGalleryPictures() {
@@ -55,5 +55,6 @@ function clearMarkup() {
 };
 
 function onError() {
+  showMore.classList.add('is-hidden');
   Notify.failure("Sorry, there are no images matching your search query. Please try again.");
 };

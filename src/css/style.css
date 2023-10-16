@@ -16,7 +16,7 @@ img {
     transition: transform 700ms ease-in-out;
 }
 .photo-card:hover {
-   transform: scale(1.10);
+   transform: scale(1.05);
 }
 
 .gallery {
@@ -120,6 +120,7 @@ input {
     margin-bottom: 10px;
     margin-top: 10px;
     height: 40px;
+    z-index: 4;
 }
 .search-icon {
     min-width: 30px;
