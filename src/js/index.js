@@ -8,9 +8,7 @@ import { createGallery } from './markup';
 
 const getPicturesApi = new GetPicturesFromApi();
 
-Fancybox.bind("[data-fancybox]", {
-    // Your custom options
-  });
+Fancybox.bind("[data-fancybox]");
 
 const searchForm = document.querySelector('#search-form');
 const gallery = document.querySelector('.gallery');
