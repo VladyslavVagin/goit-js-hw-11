@@ -11,6 +11,7 @@ const getPicturesApi = new GetPicturesFromApi();
 const searchForm = document.querySelector('#search-form');
 const showMore = document.querySelector('.show-more');
 const gallery = document.querySelector('.gallery');
+showMore.classList.add('is-hidden');
 
 searchForm.addEventListener('submit', onSearch);
 showMore.addEventListener('click', onShow);
@@ -29,6 +30,7 @@ function onSearch(e) {
         data.map(item => createGallery(item));
         gallery.insertAdjacentHTML('beforeend', markupPictures.join(''));
     }).catch(onError).finally(creationGalleryPictures);
+    showMore.classList.remove('is-hidden');
 };
 
 function creationGalleryPictures() {
@@ -36,7 +38,13 @@ function creationGalleryPictures() {
 };
 
 function onShow() {
-    getPicturesApi.getPictures().then(r => r.hits).then(data => { const markupPictures =
+    getPicturesApi.getPictures().then(r => {
+       if(r.hits.length === 0) {
+        showMore.classList.add('is-hidden');
+        const endMarkup = `<p class="end-result">We're sorry, but you've reached the end of search results.</p>`;
+        gallery.insertAdjacentHTML('beforeend', endMarkup);
+       }
+       return r.hits;}).then(data => { const markupPictures =
         data.map(item => createGallery(item));
         gallery.insertAdjacentHTML('beforeend', markupPictures.join(''));
     }).catch(onError).finally(creationGalleryPictures);
