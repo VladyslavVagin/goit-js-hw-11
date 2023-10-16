@@ -1,10 +1,16 @@
 
 import GetPicturesFromApi from './dt-api';
+import { Fancybox } from "@fancyapps/ui";
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
 import '../css/style.css';
 import { Notify } from 'notiflix';
 import { createGallery } from './markup';
 
 const getPicturesApi = new GetPicturesFromApi();
+
+Fancybox.bind("[data-fancybox]", {
+    // Your custom options
+  });
 
 const searchForm = document.querySelector('#search-form');
 const gallery = document.querySelector('.gallery');
