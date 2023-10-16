@@ -10,7 +10,6 @@ export default class GetPicturesFromApi {
   }
 
   getPictures() {
-    console.log(this);
     return axios({
       url: 'https://pixabay.com/api/',
       params: {
