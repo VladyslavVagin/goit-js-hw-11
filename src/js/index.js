@@ -13,10 +13,8 @@ Fancybox.bind("[data-fancybox]");
 
 const searchForm = document.querySelector('#search-form');
 const gallery = document.querySelector('.gallery');
-const textEnd = document.querySelector('.end-result');
 const buttonUp = document.querySelector('.up-btn');
 buttonUp.classList.add('is-hidden');
-textEnd.classList.add('is-hidden');
 
 searchForm.addEventListener('submit', onSearch);
 
@@ -32,14 +30,13 @@ async function onSearch(e) {
         Notify.info(`Hooray! We found ${r.totalHits} images.`);
         return r.hits;}).then(data => {const markupPictures =
         data.map(item => createGallery(item));
-        textEnd.classList.add('is-hidden');
         gallery.insertAdjacentHTML('beforeend', markupPictures.join(''));
         anime({
             targets: '.photo-card',
             translateY: [300, 0],
             opacity: [0, 1],
-            duration: 2000,
-            delay: 2000
+            duration: 3000,
+            delay: 1000
 });
         window.addEventListener('scroll', onScroll);
     })} catch(e) {};
@@ -54,11 +51,9 @@ async function onShow() {
             targets: '.photo-card',
             translateY: [300, 0],
             opacity: [0, 1],
-            duration: 4000,
-            delay: 1000
+            duration: 5000,
 });
     })} catch(e) {};
-    textEnd.classList.remove('is-hidden')
 };
 
 function clearMarkup() {
@@ -67,7 +62,7 @@ function clearMarkup() {
 
 function onScroll() {
     const documentRect = document.documentElement.getBoundingClientRect();
-    if(documentRect.bottom < document.documentElement.clientHeight + 200) {
+    if(documentRect.bottom < document.documentElement.clientHeight + 400) {
        onShow();
     } else if (scrollY > 500) {
         buttonUp.classList.remove('is-hidden');

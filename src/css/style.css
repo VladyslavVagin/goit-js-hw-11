@@ -79,13 +79,6 @@ img {
     background-repeat: no-repeat;
     padding: 25px;
 }
-.end-result {
-    color: grey;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 26px;
-    margin: 30px auto 60px auto;
-    text-align: center;
-}
 
 .show-more {
     margin: 15px auto;
@@ -215,10 +208,12 @@ input {
   border-radius: 100px;
   font-size: 20px;
   transition: all 700ms ease-in-out;
+  opacity: 0.9;
 }
 .up-btn:hover,
 .up-btn:focus {
   background-color: #FF5ACD;
   color: #97D9E1;
   transform: scale(1.15);
+  opacity: 1;
 }

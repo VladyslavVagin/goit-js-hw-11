@@ -5,6 +5,7 @@ export default class GetPicturesFromApi {
   constructor() {
     this.searchQuery = '';
     this.page = 1;
+    this.per_page = 40;
   }
 
    getPictures() {
@@ -23,6 +24,8 @@ export default class GetPicturesFromApi {
       this.page += 1;
       if( response.data.totalHits === 0) {
         throw new Error(Notify.failure("Sorry, there are no images matching your search query. Please try again."));
+      } else if (this.page  >= 14 || response.data.totalHits < this.per_page) {
+        Notify.info("We're sorry, but you've reached the end of search results.");
       }
       return response.data;
     });
