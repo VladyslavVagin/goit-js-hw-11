@@ -14,6 +14,7 @@ img {
     max-width: calc((100% - 50px) / 3);
     box-shadow: 0px 1px 24px 0px rgba(0,0,0,1);
     overflow: hidden;
+    background-color: #D9AFD9;
 }
 
 .photo-card:hover img{
@@ -25,7 +26,26 @@ img {
     display: flex;
     flex-wrap: wrap;
     gap: 1.5625rem;
+    animation: pulse 3s infinite;
 }
+@keyframes pulse {
+  0% {
+    background-color:  #D9AFD9;
+  }
+  25% {
+    background-color:  #FA8BFF;
+  }
+  50% {
+    background-color:  #FF5ACD;
+  }
+  75% {
+    background-color: #FF3CAC;
+  }
+  100% {
+    background-color: #FA8BFF;
+  }
+}  
+
 .info-item {
     display: flex;
     column-gap: 1.25rem;
