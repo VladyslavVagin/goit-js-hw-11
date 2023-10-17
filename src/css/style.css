@@ -15,7 +15,7 @@ img {
     transition: transform 700ms ease-in-out;
 }
 .photo-card {
-    max-width: calc((100% - 75px) / 4);
+    max-width: calc((100% - 50px) / 3);
     box-shadow: 0px 1px 24px 0px rgba(0,0,0,1);
     overflow: hidden;
     background-color: #D9AFD9;
@@ -79,68 +79,10 @@ img {
     background-repeat: no-repeat;
     padding: 25px;
 }
-
-.show-more {
-    margin: 15px auto;
-  align-items: center;
-  background-image: linear-gradient(135deg, #f34079 40%, #fc894d);
-  border: 0;
-  border-radius: 10px;
-  box-sizing: border-box;
-  color: #fff;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  font-family: "Codec cold",sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-  height: 54px;
-  justify-content: center;
-  letter-spacing: .4px;
-  line-height: 1;
-  max-width: 100%;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 3px;
-  text-decoration: none;
-  text-transform: uppercase;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-}
-
-.show-more:active {
-  outline: 0;
-}
-
-.show-more:hover {
-  outline: 0;
-}
-
-.show-more span {
-  transition: all 200ms;
-}
-
-.show-more:hover span {
-  transform: scale(.9);
-  opacity: .75;
-}
-
-@media screen and (max-width: 991px) {
-    .show-more {
-    font-size: 15px;
-    height: 50px;
-  }
-
-  .show-more span {
-    line-height: 50px;
-  }
-}
-
 input {
     position: relative;
     font-size: 1.2em;
-    background: rgba(rgb(212, 189, 189), green, blue, alpha);
+    background-color: #D9AFD9;
     padding: 5px;
     display: inline-block;
     border-radius: 9999em;
@@ -150,6 +92,11 @@ input {
     margin-top: 10px;
     height: 40px;
     z-index: 4;
+    transition: all 700ms ease-in-out;
+}
+input:focus-within {
+  background-color: cadetblue;
+  color: azure;
 }
 
 .search-icon {

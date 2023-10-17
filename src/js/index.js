@@ -35,8 +35,8 @@ async function onSearch(e) {
             targets: '.photo-card',
             translateY: [300, 0],
             opacity: [0, 1],
-            duration: 3000,
-            delay: 1000
+            duration: 2000,
+            delay: 500
 });
         window.addEventListener('scroll', onScroll);
     })} catch(e) {};
@@ -49,9 +49,9 @@ async function onShow() {
         gallery.insertAdjacentHTML('beforeend', markupPictures.join(''));
         anime({
             targets: '.photo-card',
-            translateY: [300, 0],
-            opacity: [0, 1],
-            duration: 5000,
+            translateY: [150, 0],
+            duration: 2000,
+            delay: 500
 });
     })} catch(e) {};
 };
@@ -62,7 +62,7 @@ function clearMarkup() {
 
 function onScroll() {
     const documentRect = document.documentElement.getBoundingClientRect();
-    if(documentRect.bottom < document.documentElement.clientHeight + 400) {
+    if(documentRect.bottom < document.documentElement.clientHeight + 900) {
        onShow();
     } else if (scrollY > 500) {
         buttonUp.classList.remove('is-hidden');
