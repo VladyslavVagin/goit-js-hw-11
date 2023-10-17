@@ -1,8 +1,6 @@
 import axios from "axios";
 import { Notify } from 'notiflix';
 
-export const textEnd = document.querySelector('.end-result');
-
 export default class GetPicturesFromApi {
   constructor() {
     this.searchQuery = '';
@@ -25,9 +23,6 @@ export default class GetPicturesFromApi {
       this.page += 1;
       if( response.data.totalHits === 0) {
         throw new Error(Notify.failure("Sorry, there are no images matching your search query. Please try again."));
-      } else if(response.data.hits.length === 0) {
-        textEnd.classList.remove('is-hidden');
-        throw new Error();
       }
       return response.data;
     });
