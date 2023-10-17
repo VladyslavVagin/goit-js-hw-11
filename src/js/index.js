@@ -18,15 +18,15 @@ textEnd.classList.add('is-hidden');
 
 searchForm.addEventListener('submit', onSearch);
 
-function onSearch(e) {
+async function onSearch(e) {
+    try{
     e.preventDefault();
     getPicturesApi.query = e.target.elements.searchQuery.value;
-    if(getPicturesApi.query === '') {
-     return Notify.warning('Incorrect input data!!!');
-    }
+    if(getPicturesApi.query === '' || getPicturesApi.query === ' ' || getPicturesApi.query === '  ' || getPicturesApi.query === '   ')
+     {return Notify.warning('Incorrect input data!!!');}
     clearMarkup();
-    getPicturesApi.resetPage();
-    getPicturesApi.getPictures().then(r => {
+         getPicturesApi.resetPage();
+   await getPicturesApi.getPictures().then(r => {
         Notify.info(`Hooray! We found ${r.totalHits} images.`);
         return r.hits;}).then(data => {const markupPictures =
         data.map(item => createGallery(item));
@@ -34,27 +34,29 @@ function onSearch(e) {
         gallery.insertAdjacentHTML('beforeend', markupPictures.join(''));
         anime({
             targets: '.photo-card',
-            translateY: [100, 0],
-            opacity: 1,
+            translateY: [300, 0],
+            opacity: [0, 1],
             duration: 2000,
-            delay: 1000
+            delay: 2000
 });
         window.addEventListener('scroll', onScroll);
-    }).catch(() => {});
+    })} catch(e) {};
 };
 
-function onShow() {
-    getPicturesApi.getPictures().then(r => r.hits).then(data => { const markupPictures =
+async function onShow() {
+    try {
+   await getPicturesApi.getPictures().then(r => r.hits).then(data => { const markupPictures =
         data.map(item => createGallery(item));
         gallery.insertAdjacentHTML('beforeend', markupPictures.join(''));
         anime({
             targets: '.photo-card',
-            translateY: [100, 0],
-            opacity: 1,
-            duration: 2000,
+            translateY: [300, 0],
+            opacity: [0, 1],
+            duration: 4000,
             delay: 1000
 });
-    }).catch(() => {}).finally(textEnd.classList.remove('is-hidden'));
+    })} catch(e) {};
+    textEnd.classList.remove('is-hidden')
 };
 
 function clearMarkup() {
@@ -63,7 +65,7 @@ function clearMarkup() {
 
 function onScroll() {
     const documentRect = document.documentElement.getBoundingClientRect();
-    if(documentRect.bottom < document.documentElement.clientHeight + 100) {
+    if(documentRect.bottom < document.documentElement.clientHeight + 200) {
        onShow();
     } 
 };

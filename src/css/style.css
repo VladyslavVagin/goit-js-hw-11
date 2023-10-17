@@ -11,16 +11,19 @@ img {
     transition: transform 700ms ease-in-out;
 }
 .photo-card {
-    max-width: calc((100% - 50px) / 3);
+    max-width: calc((100% - 75px) / 4);
     box-shadow: 0px 1px 24px 0px rgba(0,0,0,1);
     overflow: hidden;
     background-color: #D9AFD9;
-    opacity: 0;
-    transform: translateY(100%);
+    border-radius: 20px;
+    transition: box-shadow 700ms ease-in-out;
 }
 
 .photo-card:hover img{
    transform: scale(1.10);
+}
+.photo-card:hover {
+  box-shadow: 0px 1px 24px 0px whitesmoke;
 }
 
 .gallery {
@@ -29,6 +32,7 @@ img {
     flex-wrap: wrap;
     gap: 1.5625rem;
     animation: pulse 3s infinite;
+    padding: 10px;
 }
 @keyframes pulse {
   0% {
@@ -66,8 +70,7 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(../banner.png);
-    background-position: 50%;
+    background-image: url(../bann.png);
     background-size: cover;
     background-repeat: no-repeat;
     padding: 25px;

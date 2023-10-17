@@ -7,7 +7,7 @@ export default class GetPicturesFromApi {
     this.page = 1;
   }
 
-  getPictures() {
+   getPictures() {
     return axios({
       url: 'https://pixabay.com/api/',
       params: {
