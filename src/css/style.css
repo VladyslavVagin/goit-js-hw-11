@@ -1,40 +1,41 @@
 body {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    background-color: #FFDEE9;
-    background-image: linear-gradient(0deg, #FFDEE9 0%, #B5FFFC 100%);
+    background-color: #D9AFD9;
+    background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
     background-repeat: no-repeat;
-    background-size: cover;
 }
 
 img {
     display: block;
     max-width: 100%;
-}
-.photo-card {
-    max-width: calc((100% - 45px) / 4);
-    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
     transition: transform 700ms ease-in-out;
 }
-.photo-card:hover {
-   transform: scale(1.05);
+.photo-card {
+    max-width: calc((100% - 50px) / 3);
+    box-shadow: 0px 1px 24px 0px rgba(0,0,0,1);
+    overflow: hidden;
+}
+
+.photo-card:hover img{
+   transform: scale(1.10);
 }
 
 .gallery {
     max-width: 100%;
     display: flex;
     flex-wrap: wrap;
-    gap: 0.9375rem;
+    gap: 1.5625rem;
 }
 .info-item {
     display: flex;
-    column-gap: 0.9375rem;
+    column-gap: 1.25rem;
     flex-direction: column-reverse;
     align-items: center;
-    font-size: 0.75rem;
+    font-size: 1rem;
 }
 .info {
     display: flex;
-    gap: 0.3125rem;
+    gap: 0.9375rem;
     justify-content: center;
     max-width: 100%;
     flex-wrap: wrap;
@@ -43,6 +44,11 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image: url(../banner.png);
+    background-position: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 25px;
 }
 .end-result {
     color: grey;
@@ -123,6 +129,7 @@ input {
     height: 40px;
     z-index: 4;
 }
+
 .search-icon {
     min-width: 30px;
     min-height: 30px;
