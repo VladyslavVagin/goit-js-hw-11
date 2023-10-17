@@ -14,6 +14,8 @@ Fancybox.bind("[data-fancybox]");
 const searchForm = document.querySelector('#search-form');
 const gallery = document.querySelector('.gallery');
 const textEnd = document.querySelector('.end-result');
+const buttonUp = document.querySelector('.up-btn');
+buttonUp.classList.add('is-hidden');
 textEnd.classList.add('is-hidden');
 
 searchForm.addEventListener('submit', onSearch);
@@ -67,5 +69,9 @@ function onScroll() {
     const documentRect = document.documentElement.getBoundingClientRect();
     if(documentRect.bottom < document.documentElement.clientHeight + 200) {
        onShow();
-    } 
+    } else if (scrollY > 500) {
+        buttonUp.classList.remove('is-hidden');
+    } else if (scrollY <= 500) {
+        buttonUp.classList.add('is-hidden');
+    }
 };

@@ -1,3 +1,7 @@
+:root {
+  scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     background-color: #D9AFD9;
@@ -195,4 +199,26 @@ input {
     width: 1px;
     height: 1px;
     margin: -1;
+}
+.up-btn {
+  position: fixed;
+  right: 5%;
+  bottom: 5%;
+  text-decoration: none;
+  color: darkslateblue;
+  width: 60px;
+  height: 60px;
+  background-color: antiquewhite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100px;
+  font-size: 20px;
+  transition: all 700ms ease-in-out;
+}
+.up-btn:hover,
+.up-btn:focus {
+  background-color: #FF5ACD;
+  color: #97D9E1;
+  transform: scale(1.15);
 }
