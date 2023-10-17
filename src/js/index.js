@@ -16,7 +16,6 @@ const textEnd = document.querySelector('.end-result');
 textEnd.classList.add('is-hidden');
 
 searchForm.addEventListener('submit', onSearch);
-window.addEventListener('scroll', onScroll);
 
 function onSearch(e) {
     e.preventDefault();
@@ -32,6 +31,7 @@ function onSearch(e) {
         data.map(item => createGallery(item));
         textEnd.classList.add('is-hidden');
         gallery.insertAdjacentHTML('beforeend', markupPictures.join(''));
+        window.addEventListener('scroll', onScroll);
     }).catch(() => {});
 };
 
