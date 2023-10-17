@@ -5,6 +5,7 @@ import "@fancyapps/ui/dist/fancybox/fancybox.css";
 import '../css/style.css';
 import { Notify } from 'notiflix';
 import { createGallery } from './markup';
+import anime from 'animejs/lib/anime.es.js';
 
 const getPicturesApi = new GetPicturesFromApi();
 
@@ -31,6 +32,13 @@ function onSearch(e) {
         data.map(item => createGallery(item));
         textEnd.classList.add('is-hidden');
         gallery.insertAdjacentHTML('beforeend', markupPictures.join(''));
+        anime({
+            targets: '.photo-card',
+            translateY: [100, 0],
+            opacity: 1,
+            duration: 2000,
+            delay: 1000
+});
         window.addEventListener('scroll', onScroll);
     }).catch(() => {});
 };
@@ -39,6 +47,13 @@ function onShow() {
     getPicturesApi.getPictures().then(r => r.hits).then(data => { const markupPictures =
         data.map(item => createGallery(item));
         gallery.insertAdjacentHTML('beforeend', markupPictures.join(''));
+        anime({
+            targets: '.photo-card',
+            translateY: [100, 0],
+            opacity: 1,
+            duration: 2000,
+            delay: 1000
+});
     }).catch(() => {}).finally(textEnd.classList.remove('is-hidden'));
 };
 
