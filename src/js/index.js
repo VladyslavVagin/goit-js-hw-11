@@ -44,16 +44,21 @@ async function onSearch(e) {
             opacity: [0, 1],
             duration: 2000,
             delay: 500
-});
-        window.addEventListener('scroll', throttle((onScroll), 700));
+});        console.log(data.length);
+          if (data.length === getPicturesApi.per_page) { 
+            window.addEventListener('scroll', throttle((onScroll), 700));
+        } else {
+            window.removeEventListener('scroll');
+        }
     })} catch(e) {};
 };
 
 async function onShow() {
     try {
    await getPicturesApi.getPictures().then(r => {
-    if(r.totalHits > 0) {
+    if(r.hits.length === 0) {
         endText.classList.remove('is-hidden');
+        throw new Error();
     }
    return r.hits}).then(data => { const markupPictures =
         data.map(item => createGallery(item));
