@@ -45,7 +45,7 @@ async function onSearch(e) {
             duration: 2000,
             delay: 500
 });
-        window.addEventListener('scroll', throttle((onScroll), 1000));
+        window.addEventListener('scroll', throttle((onScroll), 700));
     })} catch(e) {};
 };
 
@@ -60,8 +60,8 @@ async function onShow() {
         gallery.insertAdjacentHTML('beforeend', markupPictures.join(''));
         anime({
             targets: '.photo-card',
-            translateY: [150, 0],
-            duration: 2000,
+            translateY: [250, 0],
+            duration: 3000,
 });
     })} catch(e) {};
 };
@@ -71,7 +71,7 @@ function clearMarkup() {
 
 function onScroll() {
     const documentRect = document.documentElement.getBoundingClientRect();
-    if(documentRect.bottom < document.documentElement.clientHeight + 900) {
+    if(documentRect.bottom < document.documentElement.clientHeight + 1000) {
        onShow();
     } else if (scrollY > 500) {
         buttonUp.classList.remove('is-hidden');
