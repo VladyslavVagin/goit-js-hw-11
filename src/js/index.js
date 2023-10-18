@@ -72,7 +72,6 @@ searchForm.addEventListener('submit', onSearch);
 // FUNCTION WHICH CALLING DURING SCROLLING AND IF PAGE MORE THAN ONE
  function onShow() {
  getPicturesApi.getPictures().then(r => {
-    getPicturesApi.page += 1;
     if(r.hits.length === 0) {
         endText.classList.remove('is-hidden');
         throw new Error();

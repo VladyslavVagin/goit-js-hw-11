@@ -25,6 +25,7 @@ export default class GetPicturesFromApi {
         per_page: 40,
       }
     })
+       this.page += 1;
       if( response.data.totalHits === 0) {
          endText.classList.add('is-hidden');
         throw new Error(Notify.failure("Sorry, there are no images matching your search query. Please try again."));
