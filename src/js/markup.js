@@ -1,3 +1,5 @@
+// HTML MARKUP OF GALLERY CARDS 
+
 export function createGallery(item) {
   return `<div class="photo-card">
   <a href="${item.largeImageURL}" data-fancybox="gallery"><img src="${item.webformatURL}" alt="${item.tags}" loading="lazy" /></a>
