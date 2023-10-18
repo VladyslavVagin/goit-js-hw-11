@@ -53,9 +53,9 @@ async function onShow() {
             duration: 2000,
             delay: 500
 });
+endOfPhoto();
     })} catch(e) {};
 };
-
 function clearMarkup() {
     gallery.innerHTML = '';
 };
@@ -70,3 +70,8 @@ function onScroll() {
         buttonUp.classList.add('is-hidden');
     }
 };
+function endOfPhoto () {
+    if(getPicturesApi.page >= 14) {
+     return  Notify.info("Sorry, there are no images matching your search query. Please try again.");
+     } 
+}
