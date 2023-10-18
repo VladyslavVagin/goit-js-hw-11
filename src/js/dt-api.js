@@ -12,8 +12,8 @@ export default class GetPicturesFromApi {
   }
 
   // FUNCTION FOR CREATION API REQUESTS 
-   getPictures() {
-    return axios({
+  async getPictures() {
+    const response = await axios({
       url: 'https://pixabay.com/api/',
       params: {
         key: '40026109-900194399c80021c84c1deb9d',
@@ -25,17 +25,12 @@ export default class GetPicturesFromApi {
         per_page: 40,
       }
     })
-    // IF BAD REQUEST MAKE ERROR !!! AND INCREASE PAGE FOR 1 EVERY CALL API
-    .then(response => {
-      this.page += 1;
       if( response.data.totalHits === 0) {
          endText.classList.add('is-hidden');
         throw new Error(Notify.failure("Sorry, there are no images matching your search query. Please try again."));
       }
       return response.data;
-    });
-  }
-
+    }
 
   // SOME USEFUL FUNCTIONS 
   resetPage() {

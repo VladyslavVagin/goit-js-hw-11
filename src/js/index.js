@@ -29,8 +29,7 @@ buttonUp.classList.add('is-hidden');
 searchForm.addEventListener('submit', onSearch);
 
 // FUNCTION WHICH WILL CALLING ON SUBMIT SEARCH REQUEST 
-async function onSearch(e) {
-    try{
+ function onSearch(e) {
     e.preventDefault();
     clearMarkup();
     // GET VALUE FROM INPUT 
@@ -40,7 +39,7 @@ async function onSearch(e) {
 
     // RESET PAGE AND SEND REQUEST TO API 
          getPicturesApi.resetPage();
-   await getPicturesApi.getPictures().then(r => {
+         getPicturesApi.getPictures().then(r => {
 
     // IF PICTURES LESS THAN 40 SHOW TEXT TO INFORM USER ABOUT END OF COLLECTION 
     if(r.totalHits > 0 && r.totalHits < 40) {
@@ -61,7 +60,6 @@ async function onSearch(e) {
             opacity: [0, 1],
             duration: 2500,
 });  
-
        // IF PICTURES ONLY 1 PAGE NOT USE LISTENER FOR SCROLL 
           if (data.length === getPicturesApi.per_page) { 
             window.addEventListener('scroll', throttle((onScroll), 700));
@@ -69,13 +67,12 @@ async function onSearch(e) {
             window.removeEventListener('scroll');
             throw new Error();
         }
-    })} catch(e) {};
-};
+    }).catch((error) => {})};
 
 // FUNCTION WHICH CALLING DURING SCROLLING AND IF PAGE MORE THAN ONE
-async function onShow() {
-    try {
-   await getPicturesApi.getPictures().then(r => {
+ function onShow() {
+ getPicturesApi.getPictures().then(r => {
+    getPicturesApi.page += 1;
     if(r.hits.length === 0) {
         endText.classList.remove('is-hidden');
         throw new Error();
@@ -88,8 +85,7 @@ async function onShow() {
             translateY: [250, 0],
             duration: 2000,
 });
-    })} catch(e) {};
-};
+    }).catch((error) => {})};
 
 // FUNCTION FOR CLEAR MARKUP OF GALLERY 
 function clearMarkup() {
