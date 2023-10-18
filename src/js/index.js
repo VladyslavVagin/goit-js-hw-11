@@ -1,4 +1,3 @@
-
 // all IMPORTS OF LIBRARIES AND OTHER JS FILES 
 import GetPicturesFromApi from './dt-api';
 import { Fancybox } from "@fancyapps/ui";
@@ -56,9 +55,10 @@ searchForm.addEventListener('submit', onSearch);
         // ANIMATION OF GALLERY 
         anime({
             targets: '.photo-card',
-            translateY: [150, 0],
+            translateY: [250, 0],
             opacity: [0, 1],
             duration: 2500,
+            delay: 1000
 });  
        // IF PICTURES ONLY 1 PAGE NOT USE LISTENER FOR SCROLL 
           if (data.length === getPicturesApi.per_page) { 
@@ -83,9 +83,14 @@ searchForm.addEventListener('submit', onSearch);
         anime({
             targets: '.photo-card',
             translateY: [250, 0],
+            opacity: [0.5, 1],
             duration: 2000,
 });
-    }).catch((error) => {})};
+    }).catch((error) => {}).finally(() => {
+        // REFRESH GALLERY 
+        Fancybox.destroy();
+        Fancybox.bind("[data-fancybox]");
+    })};
 
 // FUNCTION FOR CLEAR MARKUP OF GALLERY 
 function clearMarkup() {
