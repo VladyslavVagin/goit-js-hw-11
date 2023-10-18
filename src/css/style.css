@@ -166,3 +166,9 @@ input:focus-within {
   transform: scale(1.15);
   opacity: 1;
 }
+.end {
+  font-size: 1.5rem;
+  text-align: center;
+  padding-bottom: 30px;
+  font-weight: bold;
+}
