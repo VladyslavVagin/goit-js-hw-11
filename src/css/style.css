@@ -16,7 +16,6 @@ img {
 }
 .photo-card {
     max-width: 300px;
-    max-height: 300px;
     box-shadow: 0px 1px 24px 0px rgba(0,0,0,1);
     overflow: hidden;
     background-color: #D9AFD9;

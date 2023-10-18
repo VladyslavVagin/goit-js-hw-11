@@ -32,13 +32,11 @@ searchForm.addEventListener('submit', onSearch);
 async function onSearch(e) {
     try{
     e.preventDefault();
-    endText.classList.add('is-hidden');
-
+    clearMarkup();
     // GET VALUE FROM INPUT 
     getPicturesApi.query = e.target.elements.searchQuery.value;
     if(getPicturesApi.query === '' || getPicturesApi.query === ' ' || getPicturesApi.query === '  ' || getPicturesApi.query === '   ')
      {return Notify.warning('Incorrect input data!!!');}
-    clearMarkup();
 
     // RESET PAGE AND SEND REQUEST TO API 
          getPicturesApi.resetPage();
@@ -59,10 +57,9 @@ async function onSearch(e) {
         // ANIMATION OF GALLERY 
         anime({
             targets: '.photo-card',
-            translateY: [300, 0],
+            translateY: [150, 0],
             opacity: [0, 1],
-            duration: 2000,
-            delay: 500
+            duration: 2500,
 });  
 
        // IF PICTURES ONLY 1 PAGE NOT USE LISTENER FOR SCROLL 
@@ -78,15 +75,18 @@ async function onSearch(e) {
 // FUNCTION WHICH CALLING DURING SCROLLING AND IF PAGE MORE THAN ONE
 async function onShow() {
     try {
-   await getPicturesApi.getPictures().then(r => r.hits).then(data => { const markupPictures =
+   await getPicturesApi.getPictures().then(r => {
+    if(r.hits.length === 0) {
+        endText.classList.remove('is-hidden');
+        throw new Error();
+    }
+   return r.hits}).then(data => { const markupPictures =
         data.map(item => createGallery(item));
         gallery.insertAdjacentHTML('beforeend', markupPictures.join(''));
         anime({
             targets: '.photo-card',
             translateY: [250, 0],
-            opacity: [0, 1],
-            duration: 1000,
-            delay: 600
+            duration: 2000,
 });
     })} catch(e) {};
 };
@@ -94,12 +94,13 @@ async function onShow() {
 // FUNCTION FOR CLEAR MARKUP OF GALLERY 
 function clearMarkup() {
     gallery.innerHTML = '';
+    endText.classList.add('is-hidden');
 };
 
 // FUNCTION WHICH WILL CALL FOR SCROLL !!! SHE CALL ALSO ADDITIONAL REQUESTS FOR API BY CALLING FN onShow 
 function onScroll() {
     const documentRect = document.documentElement.getBoundingClientRect();
-    if(documentRect.bottom < document.documentElement.clientHeight + 1400) {
+    if(documentRect.bottom < document.documentElement.clientHeight + 1600) {
        onShow();
        endText.classList.remove('is-hidden');
     //    APPEAR AND DISAPPEAR UP-BUTTON 

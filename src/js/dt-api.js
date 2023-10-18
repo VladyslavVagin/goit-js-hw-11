@@ -2,6 +2,7 @@
 import axios from "axios";
 import { Notify } from 'notiflix';
 
+const endText = document.querySelector('.end');
 // MAKE DEFAULT CLASS 
 export default class GetPicturesFromApi {
   constructor() {
@@ -28,6 +29,7 @@ export default class GetPicturesFromApi {
     .then(response => {
       this.page += 1;
       if( response.data.totalHits === 0) {
+         endText.classList.add('is-hidden');
         throw new Error(Notify.failure("Sorry, there are no images matching your search query. Please try again."));
       }
       return response.data;
