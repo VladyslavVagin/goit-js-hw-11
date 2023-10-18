@@ -101,13 +101,12 @@ function onScroll() {
     const documentRect = document.documentElement.getBoundingClientRect();
     if(documentRect.bottom < document.documentElement.clientHeight + 1400) {
        onShow();
-
+       endText.classList.remove('is-hidden');
     //    APPEAR AND DISAPPEAR UP-BUTTON 
     } else if (scrollY > 500) {
         buttonUp.classList.remove('is-hidden');
     } else if (scrollY <= 500) {
         buttonUp.classList.add('is-hidden');
     }
-    endText.classList.remove('is-hidden');
 };
 // ===============================================================================================================
