@@ -20,14 +20,18 @@ const gallery = document.querySelector('.gallery');
 const buttonUp = document.querySelector('.up-btn');
 const endText = document.querySelector('.end');
 const wrapper = document.querySelector('.wrapper');
+const openGallery = document.querySelector('.fullscreen-title');
 
 // BUTTON UP AND END TEXT HIDDEN 
 endText.classList.add('is-hidden');
 buttonUp.classList.add('is-hidden');
- setTimeout(() => wrapper.classList.add('is-hidden'), 8000);
+searchForm.classList.add('is-hidden');
 
 // ADD EVENT LISTENER TO SEARCH BUTTON 
 searchForm.addEventListener('submit', onSearch);
+openGallery.addEventListener('click', () => {
+    searchForm.classList.remove('is-hidden');
+    wrapper.classList.add('is-hidden')});
 
 // FUNCTION WHICH WILL CALLING ON SUBMIT SEARCH REQUEST 
  function onSearch(e) {

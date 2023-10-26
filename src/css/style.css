@@ -188,9 +188,9 @@ input:focus-within {
   flex-direction: column;
 }
 .fullscreen-body {
-  position: relative;
+  position: fixed;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   z-index: 999999;
   display: flex;
   flex: 1 1 auto;
@@ -201,9 +201,34 @@ input:focus-within {
 }
 .fullscreen-title {
   font-size: 30px;
-  letter-spacing: 25px;
+  letter-spacing: 20px;
   font-weight: 700;
-  margin: 0px 0px 20px 0px;
+  margin: 0px 14px 20px 14px;
   color: #fff;
   z-index: 99999999;
+  background-color: #ffffff00;
+  border: none;
+  cursor: pointer;
+  transition: all 600ms ease-in-out;
+  padding: 20px;
+  border: 1px solid #fff;
+  border-radius: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fullscreen-title:hover, .fullscreen-title:focus {
+  color: #FF5ACD;
+  transform: scale(1.20);
+  border-color: #FF5ACD;
+}
+@media screen and (max-width: 420px) {
+  .fullscreen-title {
+    font-size: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 10px;
+    letter-spacing: 15px;
+  }
 }
