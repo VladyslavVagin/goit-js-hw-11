@@ -13,7 +13,6 @@ export default class GetPicturesFromApi {
 
   // FUNCTION FOR CREATION API REQUESTS 
   async getPictures() {
-    try {
     const response = await axios({
       url: 'https://pixabay.com/api/',
       params: {
@@ -32,7 +31,6 @@ export default class GetPicturesFromApi {
         throw new Error(Notify.failure("Sorry, there are no images matching your search query. Please try again."));
       }
       return response.data;
-    } catch (error) {console.log(error)}
   }
 
   // SOME USEFUL FUNCTIONS 

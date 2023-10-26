@@ -19,10 +19,12 @@ const searchForm = document.querySelector('#search-form');
 const gallery = document.querySelector('.gallery');
 const buttonUp = document.querySelector('.up-btn');
 const endText = document.querySelector('.end');
+const wrapper = document.querySelector('.wrapper');
 
 // BUTTON UP AND END TEXT HIDDEN 
 endText.classList.add('is-hidden');
 buttonUp.classList.add('is-hidden');
+ setTimeout(() => wrapper.classList.add('is-hidden'), 8000);
 
 // ADD EVENT LISTENER TO SEARCH BUTTON 
 searchForm.addEventListener('submit', onSearch);

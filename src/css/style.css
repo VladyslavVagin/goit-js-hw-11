@@ -172,3 +172,38 @@ input:focus-within {
   padding-bottom: 3.75rem;
   font-weight: bold;
 }
+.fullscreen-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 99999;
+}
+.fullscreen {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.fullscreen-body {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999999;
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgba(0,0,0,0.5);
+}
+.fullscreen-title {
+  font-size: 30px;
+  letter-spacing: 25px;
+  font-weight: 700;
+  margin: 0px 0px 20px 0px;
+  color: #fff;
+  z-index: 99999999;
+}
