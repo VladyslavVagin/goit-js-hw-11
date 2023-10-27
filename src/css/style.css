@@ -39,7 +39,7 @@ img {
     gap: 1.5625rem;
     animation: pulse 3s infinite;
     justify-content: center;
-    padding-top: 10px;
+    padding: 15px 0px 20px 0px;
 }
 @keyframes pulse {
   0% {
@@ -199,7 +199,7 @@ input:focus-within {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,0.3);
 }
 .fullscreen-title {
   position: relative;
@@ -325,6 +325,16 @@ input:focus-within {
 .fullscreen-title:hover span:nth-child(4 ) {
   bottom: 50%;
 }
+.wrapper {
+  opacity: 1;
+  transition: all 1000ms ease-in-out;
+}
+
+.hidden {
+  opacity: 0;
+  transform: scale(0) rotate(360deg);
+}
+
 
 @media screen and (max-width: 710px) {
   .fullscreen-title {

@@ -31,7 +31,9 @@ searchForm.classList.add('is-hidden');
 searchForm.addEventListener('submit', onSearch);
 openGallery.addEventListener('click', () => {
     searchForm.classList.remove('is-hidden');
-    wrapper.classList.add('is-hidden')});
+    wrapper.classList.add('hidden')
+setTimeout(() => wrapper.classList.add('is-hidden'), 1200);
+});
 
 // FUNCTION WHICH WILL CALLING ON SUBMIT SEARCH REQUEST 
  function onSearch(e) {
