@@ -328,7 +328,7 @@ input:focus-within {
 }
 .wrapper {
   opacity: 1;
-  transition: all 1200ms ease-in-out;
+  transition: all 1000ms ease-in-out;
 }
 
 .hidden {
