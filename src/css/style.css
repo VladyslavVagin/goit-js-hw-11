@@ -350,12 +350,8 @@ input:focus-within {
   bottom: 50%;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 710px) {
   .fullscreen-title {
-    font-size: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
-    padding: 10px;
-    letter-spacing: 15px;
+   transform: scale(0.7);
   }
 }
