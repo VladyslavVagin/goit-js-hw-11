@@ -1,34 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="wrapper">
-       <div class="fullscreen">
+      <div class="fullscreen">
         <div class="fullscreen-body">
-            <button class="fullscreen-title" type="button">DISCOVER IMAGES</button>
+          <button class="fullscreen-title" type="button">
+            DISCOVER IMAGES
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
         </div>
-        <video class="fullscreen-video" preload="auto" autoplay muted loop playsinline>
-            <source type="video/webm" src="./abstract_background.webm">
-            <source type="video/mp4" src="./abstract_background_-_107303 (Original).mp4">
-         </video>
-       </div>
+        <video
+          class="fullscreen-video"
+          preload="auto"
+          autoplay
+          muted
+          loop
+          playsinline
+        >
+          <source type="video/webm" src="./abstract_background.webm" />
+          <source
+            type="video/mp4"
+            src="./abstract_background_-_107303 (Original).mp4"
+          />
+        </video>
+      </div>
     </div>
     <form class="search-form" id="search-form">
-        <input type="text" name="searchQuery" autocomplete="off" placeholder="Search images..." />
-        <button type="submit" class="search-button"><img src="./search_button.png" class="search-icon"></button>
+      <input
+        type="text"
+        name="searchQuery"
+        autocomplete="off"
+        placeholder="Search images..."
+      />
+      <button type="submit" class="search-button">
+        <img src="./search_button.png" class="search-icon" />
+      </button>
     </form>
     <div class="gallery container">
-        <!-- Картки зображень -->
-      </div>
-      <p class="end">We're sorry, but you've reached the end of search results.</p>
-      <a href="#search-form" class="up-btn"><span>Up</span></a>
+      <!-- Картки зображень -->
+    </div>
+    <p class="end">
+      We're sorry, but you've reached the end of search results.
+    </p>
+    <a href="#search-form" class="up-btn"><span>Up</span></a>
     <script type="module" src="./js/index.js"></script>
-</body>
-
+  </body>
 </html>
