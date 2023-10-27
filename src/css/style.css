@@ -1,5 +1,6 @@
 :root {
   scroll-behavior: smooth;
+  --color-wrapper: #01e1ff;
 }
 
 body {
@@ -205,10 +206,10 @@ input:focus-within {
   position: relative;
   padding: 16px 30px;
   font-size: 1.5rem;
-  color: #1e9bff;
+  color: var(--color-wrapper);
   border: 2px solid rgba(0, 0, 0, 0.5);
   border-radius: 4px;
-  text-shadow: 0 0 15px #1e9bff;
+  text-shadow: 0 0 15px var(--color-wrapper);
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 0.1rem;
@@ -221,7 +222,7 @@ input:focus-within {
 
 .fullscreen-title:hover {
   color: #fff;
-  box-shadow: 0 0 0px #1e9bff;
+  box-shadow: 0 0 0px var(--color-wrapper);
 }
 
 .fullscreen-title::before {
@@ -231,7 +232,7 @@ input:focus-within {
   left: 0;
   width: 100%;
   height: 100%;
-  background: #1e9bff;
+  background: var(--color-wrapper);
   z-index: -1;
   transform: scale(0);
   transition: 0.5s;
@@ -240,21 +241,21 @@ input:focus-within {
 .fullscreen-title:hover::before {
   transform: scale(1);
   transition-delay: 0.5s;
-  box-shadow: 0 0 10px #1e9bff,
-    0 0 30px #1e9bff,
-    0 0 60px #1e9bff;
+  box-shadow: 0 0 10px var(--color-wrapper),
+    0 0 30px var(--color-wrapper),
+    0 0 60px var(--color-wrapper);
 }
 
 .fullscreen-title span {
   position: absolute;
-  background: #1e9bff;
+  background: var(--color-wrapper);
   pointer-events: none;
   border-radius: 2px;
-  box-shadow: 0 0 10px #1e9bff,
-    0 0 20px #1e9bff,
-    0 0 30px #1e9bff,
-    0 0 50px #1e9bff,
-    0 0 100px #1e9bff;
+  box-shadow: 0 0 10px var(--color-wrapper),
+    0 0 20px var(--color-wrapper),
+    0 0 30px var(--color-wrapper),
+    0 0 50px var(--color-wrapper),
+    0 0 100px var(--color-wrapper);
   transition: 0.5s ease-in-out;
   transition-delay: 0.25s;
 }
