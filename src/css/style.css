@@ -7,6 +7,8 @@ body {
     background-color: #D9AFD9;
     background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
     background-repeat: no-repeat;
+    box-sizing: border-box;
+    margin: 0;
 }
 
 img {
@@ -31,12 +33,11 @@ img {
 }
 
 .gallery {
-    max-width: 100%;
+    max-width: 100vw;
     display: flex;
     flex-wrap: wrap;
     gap: 1.5625rem;
     animation: pulse 3s infinite;
-    padding: 10px;
     justify-content: center;
 }
 @keyframes pulse {
@@ -190,7 +191,7 @@ input:focus-within {
 .fullscreen-body {
   position: fixed;
   width: 100vw;
-  height: 100%;
+  height: 100vh;
   z-index: 999999;
   display: flex;
   flex: 1 1 auto;
